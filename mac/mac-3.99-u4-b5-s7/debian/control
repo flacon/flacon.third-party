@@ -1,0 +1,16 @@
+Source: mac
+Section: sound
+Priority: extra
+Maintainer: Alexander Sokolov <sokoloff.a@gmail.com>
+Build-Depends: debhelper (>= 7), autotools-dev
+Standards-Version: 3.9.1
+Homepage: http://www.etree.org/shnutils/shntool/support/formats/ape/unix/
+
+Package: mac
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: shntool, cuetools
+Description: Monkey's Audio Codec - command line tool
+ Compressor and decompressor of ape files.
+ Compiled to be able to convert APE files to FLAC or any other FOSS audio codec ;)
+
