@@ -13,5 +13,5 @@ for PROG in ${PROGS}; do
 done
 
  # Create send2launchpad.sh script
-echo "dput ppa:razor-qt/ppa *_source.changes" > ${OUT_DIR}/send2launchpad.sh
+echo "dput ppa:flacon *_source.changes" > ${OUT_DIR}/send2launchpad.sh
 chmod u+x ${OUT_DIR}/send2launchpad.sh
