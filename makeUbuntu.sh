@@ -1,9 +1,13 @@
 #!/bin/sh
 
-OUT_DIR=~/flacon-3party-deb
-RELEASES='oneiric'
+OUT_DIR="Debs"
+RELEASES=''
+#RELEASES="${RELEASES} oneiric"
+#RELEASES="${RELEASES} precise"
+RELEASES="${RELEASES} quantal"
 PROGS='mac ttaenc'
-
+echo ${RELEASES}
+exit
 mkdir -p ${OUT_DIR}
 
 for PROG in ${PROGS}; do
