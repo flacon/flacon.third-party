@@ -1,7 +1,0 @@
-syntax: glob
-
-# Backup files
-*~
-
-#Builds files
-Debs/*
