@@ -2,10 +2,7 @@
 
 OUT_DIR="Debs"
 RELEASES=''
-#RELEASES="${RELEASES} oneiric"
-#RELEASES="${RELEASES} precise"
-#RELEASES="${RELEASES} quantal"
-RELEASES="${RELEASES} saucy"
+RELEASES="${RELEASES} trusty"
 PROGS='mac ttaenc'
 
 mkdir -p ${OUT_DIR}
