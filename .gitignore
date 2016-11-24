@@ -9,6 +9,13 @@ CPackConfig.cmake
 CPackSourceConfig.cmake
 lib*.so
 lib*.so.*
+*.lo
+*.o
+*.Plo
+*.a
+*.la
+*.Po
+.libs
 ui_*.h
 *.qm
 *~
@@ -22,3 +29,11 @@ syntax: glob
 
 #Builds files
 Debs/*
+
+mac/mac-*/config.log
+mac/mac-*/config.status
+mac/mac-*/libtool
+mac/mac-*/src/Console/mac
+mac/mac-*/src/Examples/Analyze/Sample1/Sample1
+mac/mac-*/src/Shared/config.h
+mac/mac-*/src/Shared/stamp-h1
