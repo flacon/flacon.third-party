@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-SCRIPT_VERSION = "0.1.0"
+SCRIPT_VERSION = "0.2.0"
 
 
 import argparse
@@ -39,6 +39,9 @@ def check_libs(args):
     if VERBOSE:
         print(f"Check libraries in {bundleDir}")
 
+    if not os.path.isdir(bundleDir):
+        raise Error(f"can't open input directory: {bundleDir} (No such directory)")
+
     errors = []
 
     def checkLib(fileName, lib):
@@ -67,6 +70,7 @@ def check_libs(args):
 
             for line in lines[1:]:
                 line = line.decode("UTF-8").strip()
+
                 if line == "":
                     continue
 
@@ -75,15 +79,16 @@ def check_libs(args):
                 if isSystemLib(lib):
                     continue
 
-                if lib.startswith("@executable_path/../Frameworks/"):
-                    checkLib(fileName, lib)
-                    continue
 
                 suffix = fileName.removeprefix(f"{bundleDir}/Contents/PlugIns/")
                 if lib.endswith(suffix):
                     continue
 
                 if os.path.basename(lib) == os.path.basename(fileName):
+                    continue
+
+                if lib.startswith("@executable_path/../Frameworks/"):
+                    checkLib(fileName, lib)
                     continue
 
                 errors.append(f"Non local libreary - {lib}")
@@ -93,7 +98,6 @@ def check_libs(args):
                 print(f"{fileName}")
                 for e in errors:
                     print(f"- {e}")
-
 
     if not res:
         sys.exit(2)
